@@ -1,0 +1,25 @@
+Pour la gestion des utilisteurs et groupe, differentes commandes utilisees dans la video nous ont permi de gerer des permissions d'acces au ressouce
+
+voici les differentes questions comportant notre TPE avec les commandes utilisees
+
+Creer un groupe info et maths : groupadd info, groupadd maths
+
+creer les utilisateurs elie, tobaye, djibi, oumarou et togbe : useradd 'user-name', exemple: useradd elie ainsi pour differents utilisateurs
+
+Ajouter les utilisateurs elie, tobaye,djibi dans le groupe info et oumarou, togbe dans le grouoe maths respectivement: usermod -aG info elie..., usermod -aG maths oumarou
+
+se connecter dans le compte elie puis creer un repertoire personnel document: su elie, mkdir document
+
+Creer un dossier cours et un fichier PTE dans le repertoire  personnel document: mkdir document/cours, touch document/ tpe
+
+Afficher le dossier  document de facon detaillee : ls -l document/ ou getfacl document
+
+Modifier le groupe proprietaire du dossier  cours et du fichier tpe .Le nouveau sera info : chown :info document/cours , chown :info document/tpe
+
+Donner le droit rwx (lecture, d'ecriture et execution) aux utilisateurs sur cours et tpe: chmod u+rwx document/cours, chmod u+rwx document/tpe
+
+-les droits   rw au groupe proprietaire sur cours et tpe: chmod g+rw document/cours, chmod g+rw document/tpe
+
+-soustraire les droits rwx au autres sur cours et tpe: chmod o-rwx document/cours,chmod o-rwx document/tpe 
+
+Donner les droits rwx au groupe maths: setfacl -d -m  sosthene:rwx maths 
